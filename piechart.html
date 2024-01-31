@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    .chart {
+      width: 100%;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body style="background-color: #222222">
+  <div id="myDiv" class="chart"></div>
+
+  <script>
+    const dataSets = ["SNP", "Green", "Lib Dem", "UKIP", "Labor", "Conservative","others"];
+    var data = [
+      {
+        type: "pie",
+        values: [7,15,10,16,22,26,4],
+        labels: dataSets,
+        textinfo: "label+percent",
+        insidetextorientation: "radial",
+        font: {
+          color: "white",
+        },
+        marker: {
+          colors: ['#FECF16', '#0B8E36','#F39200','#843A8E','#E7302A','#104C9C','#D0D0D0'] 
+        }
+      },
+    ];
+
+    var layout = {
+      plot_bgcolor: "#222222",
+      paper_bgcolor: "#222222",
+      font: {
+        color: "white",
+      },
+    };
+    Plotly.newPlot("myDiv", data, layout, {displayModeBar: false});
+  </script>
+</body>
+</html>

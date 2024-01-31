@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .chart {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="myDiv" class="chart"></div>
+
+    <script>
+        const dataSets = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var trace1 = {
+            x: dataSets,
+            y: [20, 14, 25, 16, 18, 22, 19, 15, 12, 16, 14, 17],
+            type: 'bar',
+            name: 'Compliant',
+            marker: {
+                color:'#00E396',
+            }
+        };
+
+        var trace2 = {
+            x: dataSets,
+            y: [19, 14, 22, 14, 16, 19, 15, 14, 10, 12, 12, 16],
+            type: 'bar',
+            name: 'Non-Compliant',
+            marker: {
+                color:'#008FFB', 
+            }
+        };
+
+        var data = [trace1, trace2];
+
+        var layout = {
+            //title: 'Playbook Count by Env',
+            xaxis: {
+                bargap: 0.2,
+            },
+            yaxis: {
+                tick0: 0,
+                dtick: 2,
+            },
+            //plot_bgcolor: '#222222',
+            //paper_bgcolor: '#222222',
+            
+            legend: {
+                x: 0,
+                y: -0.2,
+                bordercolor: 'rgba(255, 255, 255, 0)',
+                
+            },
+
+            barmode: 'group'
+        };
+
+        Plotly.newPlot('myDiv', data, layout, {displayModeBar: false});
+
+    </script>
+
+</body>
+
+</html>
