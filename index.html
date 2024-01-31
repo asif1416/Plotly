@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playbook Count by Env</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .chart {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body style="background-color: #222222;">
+
+<div id="playbookChart" class="chart"></div>
+
+<script>
+    var data = [
+        {
+            y: ['DEV', 'UAT', 'PROD', 'Total'],
+            x: [11,3,1,15],
+            name: 'Compliant',
+            type: 'bar',
+            orientation: 'h',
+            marker: {
+                color: 'rgb(121, 176, 33)'
+            },
+            hovertemplate: '%{y}: %{x} <extra></extra>' 
+        },
+        {
+            y: ['DEV', 'UAT', 'PROD', 'Total'],
+            x: [69,157,158,384],
+            name: 'Non-Compliant',
+            type: 'bar',
+            orientation: 'h',
+            marker: {
+                color: 'rgb(242, 77, 17)'
+            },
+            hovertemplate: '%{y}: %{x} <extra></extra>'
+        }
+    ];
+
+    var layout = {
+        barmode: 'stack',
+        title: {
+            text: 'Playbook Count by Env',
+            x: 0.05, 
+            y: -1, 
+            xanchor: 'left', 
+            yanchor: 'top', 
+            font: {
+                color: 'white' 
+            }
+        },
+        yaxis: {
+            automargin: true,
+        },
+        xaxis: {
+            tick0: 0, 
+            dtick: 20
+        },
+        margin: {
+            l: 100, 
+            r: 50,
+            t: 50,
+            b: 50
+        },
+        plot_bgcolor: '#222222', 
+        paper_bgcolor: '#222222', 
+        font: {
+            color: 'white' 
+        },
+        legend: {
+            x: 0,
+            y: -0.2,
+            bordercolor: 'rgba(255, 255, 255, 0)',
+            font: {
+                color: 'white' 
+            }
+        }
+    };
+
+    Plotly.newPlot('playbookChart', data, layout);
+</script>
+
+</body>
+</html>
