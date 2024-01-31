@@ -16,9 +16,10 @@
 <div id="playbookChart" class="chart"></div>
 
 <script>
+    const dataSets =  ['DEV', 'UAT', 'PROD', 'Total'];
     var data = [
         {
-            y: ['DEV', 'UAT', 'PROD', 'Total'],
+            y: dataSets,
             x: [11,3,1,15],
             name: 'Compliant',
             type: 'bar',
@@ -29,7 +30,7 @@
             hovertemplate: '%{y}: %{x} <extra></extra>' 
         },
         {
-            y: ['DEV', 'UAT', 'PROD', 'Total'],
+            y: dataSets,
             x: [69,157,158,384],
             name: 'Non-Compliant',
             type: 'bar',
@@ -55,10 +56,13 @@
         },
         yaxis: {
             automargin: true,
+
         },
         xaxis: {
             tick0: 0, 
-            dtick: 20
+            dtick: 20,
+            bargap:0.2,
+
         },
         margin: {
             l: 100, 
@@ -78,6 +82,9 @@
             font: {
                 color: 'white' 
             }
+        },
+        hoverlabel:{
+            align: 'right'
         }
     };
 
